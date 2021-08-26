@@ -1,0 +1,14 @@
+version: "3.8"
+volumes:
+  db-store:
+services:
+  db:
+    build: .
+    container_name: mysql8
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+      TZ: 'Asia/Tokyo'
+    ports:
+      - 33306:3306
+    volumes:
+      - db-store:/var/lib/mysql
